@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - mkdir $CODEBUILD_SRC_DIR/imagedefinitions
+      - cd $CODEBUILD_SRC_DIR_ImageArtifact
+      - |
+        for stage in ${stages}
+        do
+          jq -r "[{ \"name\": \"${container_name_prefix}\", \"imageUri\": .ImageURI }]" imageDetail.json | tee $CODEBUILD_SRC_DIR/imagedefinitions/main.json
+        done
+
+artifacts:
+  files:
+    - imagedefinitions/*.json

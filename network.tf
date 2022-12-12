@@ -33,7 +33,7 @@ resource "aws_instance" "terraform_ec2"{
   instance_type               = "t2.micro"
   availability_zone           = "ap-northeast-1a"
   vpc_security_group_ids      = ["sg-0a71e946535eb00dc"]
-  subnet_id                   = aws_subnet.terraform_public_1a.id
+  subnet_id                   = "subnet-0da8455aa2c26be8e"
   tags = {
     Name = "terraform-ec2"
   }

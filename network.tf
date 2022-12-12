@@ -77,6 +77,7 @@ resource "aws_instance" "terraform_ec2"{
   availability_zone           = "ap-northeast-1a"
   vpc_security_group_ids      = [aws_security_group.terraform_ec2_sg.id]
   subnet_id                   = "subnet-0da8455aa2c26be8e"
+  key_name                    = "ansible-controller"
   tags = {
     Name = "terraform-ec2"
   }

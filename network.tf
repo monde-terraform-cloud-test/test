@@ -36,7 +36,7 @@ resource "aws_instance" "terraform_ec2"{
   ami                         = data.aws_ssm_parameter.amzn2_latest_ami.value
   instance_type               = "t2.micro"
   availability_zone           = "ap-northeast-1"
-  vpc_security_group_ids      = "sg-0a71e946535eb00dc"
+  vpc_security_group_ids      = ["sg-0a71e946535eb00dc"]
   subnet_id                   = aws_subnet.terraform_public_1a
   associate_public_ip_address = "true"
   key_name                    = "ansible-controller"

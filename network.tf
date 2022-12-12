@@ -35,7 +35,7 @@ data "aws_ssm_parameter" "amzn2_latest_ami" {
 resource "aws_instance" "terraform_ec2"{
   ami                         = data.aws_ssm_parameter.amzn2_latest_ami.value
   instance_type               = "t2.micro"
-  availability_zone           = "ap-northeast-1"
+  availability_zone           = "ap-northeast-1a"
   vpc_security_group_ids      = ["sg-0a71e946535eb00dc"]
   subnet_id                   = aws_subnet.terraform_public_1a.id
   associate_public_ip_address = "true"

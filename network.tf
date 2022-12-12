@@ -16,7 +16,7 @@ resource "aws_vpc" "vpc" {
 resource "aws_subnet" "terraform_public_1a" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = "192.168.2.0/25"
-  availability_zone = "ap-northeast-1"
+  availability_zone = "ap-northeast-1a"
 
   tags = {
     Name = "terraform-public-1a"

@@ -26,14 +26,10 @@ resource "aws_subnet" "terraform_public_1a" {
 # ---------------------------
 # EC2
 # ---------------------------
-# Amazon Linux 2 の最新版AMIを取得
-data "aws_ssm_parameter" "amzn2_latest_ami" {
-  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-}
 
 # EC2作成
 resource "aws_instance" "terraform_ec2"{
-  ami                         = data.aws_ssm_parameter.amzn2_latest_ami.value
+  ami                         = "ami-072bfb8ae2c884cc4"
   instance_type               = "t2.micro"
   availability_zone           = "ap-northeast-1a"
   vpc_security_group_ids      = ["sg-0a71e946535eb00dc"]

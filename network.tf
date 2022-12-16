@@ -73,7 +73,7 @@ resource "aws_security_group" "terraform_ec2_sg" {
 # EC2作成
 resource "aws_instance" "terraform_ec2"{
   ami                         = "ami-072bfb8ae2c884cc4"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.nano"
   availability_zone           = "ap-northeast-1a"
   vpc_security_group_ids      = [aws_security_group.terraform_ec2_sg.id]
   subnet_id                   = "subnet-0da8455aa2c26be8e"
